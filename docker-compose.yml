@@ -1,0 +1,17 @@
+version: "3.8"
+
+services: 
+
+  db:
+    image: postgres:12-alpine
+    env_file: 
+      - database.env
+    ports: 
+      - 1111:5432
+    volumes: 
+      - database_data:/var/lib/postgresql/data/
+    restart: unless-stopped
+
+
+volumes:
+  database_data:
